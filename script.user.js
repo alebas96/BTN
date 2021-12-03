@@ -46,14 +46,12 @@
     } );
 
     function processJSON_Response (rspObj) {
-    console.log(rspObj);
     if (rspObj.status == 200) {
         console.log(JSON.parse(rspObj.response));
         let attendee = JSON.parse(rspObj.response);
         $('.attendees_title').append(`<span style="float: right"> Arrivati:  ${attendee.filter( (a) => a.has_arrived === 1).length} / ${attendee.length}</span>`);
         return;
     }
-    //-- The payload from the API will be in rspObj.response.
 
    }
 
