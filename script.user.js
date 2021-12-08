@@ -2,6 +2,8 @@
 // @name         Checked-in Bring The Noise
 // @namespace    http://tampermonkey.net/
 // @version      0.1
+// @downloadURL https://github.com/alebas96/BTN/raw/main/script.user.js
+// @updateURL   https://github.com/alebas96/BTN/raw/main/script.user.js
 // @require  https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js
 // @description  Aggiunge le persone arrivate alla pagina del Check-in.
 // @author       alebas.png
