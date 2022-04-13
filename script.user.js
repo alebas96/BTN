@@ -1,20 +1,20 @@
 // ==UserScript==
 // @name         Checked-in Bring The Noise
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.2
 // @downloadURL https://github.com/alebas96/BTN/raw/main/script.user.js
 // @updateURL   https://github.com/alebas96/BTN/raw/main/script.user.js
 // @require  https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js
 // @description  Aggiunge le persone arrivate alla pagina del Check-in.
 // @author       alebas.png
-// @match        https://eventi.oratoridisettimo.it/event/2/check_in
+// @match        https://eventi.oratoridisettimo.it/event/*/check_in
 // @icon         https://www.google.com/s2/favicons?domain=oratoridisettimo.it
 // @grant        GM_xmlhttpRequest
 // @connect      eventi.oratoridisettimo.it
 // ==/UserScript==
 
 (function() {
-    let apiURL = "https://eventi.oratoridisettimo.it/event/2/check_in/search";
+    let apiURL = window.location.href+"/search";
     let apiPath = "check_in/search";
     let regexToken = /\'\w+\';/gm
     const X_CSRF_TOKEN = $('script:contains("X-CSRF-TOKEN")').text().match(regexToken)[0].replace(/\'/gm, '').replace(';','')
@@ -39,7 +39,7 @@
         "Origin": "https://eventi.oratoridisettimo.it",
         'X-Requested-With': 'XMLHttpRequest',
             "X-CSRF-TOKEN": X_CSRF_TOKEN,
-        "Referer": "https://eventi.oratoridisettimo.it/event/2/check_in"
+        "Referer": window.location.href
     },
     url:            apiURL,
     responseType:   "application/json",
